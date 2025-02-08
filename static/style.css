@@ -1,6 +1,6 @@
 @import url('https://pvinis.github.io/iosevka-webfont/3.4.1/iosevka.css');
 @import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
-@import url('semantic.cyborg.min.css');
+@import url('cyborg.css');
 h1 {
     font-family: 'Allura';
     font-size: 50px;
