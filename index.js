@@ -4,7 +4,12 @@ import habs from 'express-handlebars'
 var x = 1
 var y = Math.random()
 const rn = fix => Math.random().toFixed(fix)
-const hbs = habs.create({defaultLayout: 'main.hbs'})
+const hbs = habs.create({
+  defaultLayout: 'main.hbs',
+  helpers: {
+    mod2: a => `${a} mod 2 = ${a % 2}` 
+  }  
+})
 const app = expr()
   .engine('.hbs', hbs.engine)
   .set('view engine', '.hbs')
