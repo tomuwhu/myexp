@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js" integrity="sha512-Xo0Jh8MsOn72LGV8kU5LsclG7SUzJsWGhXbWcYs2MAmChkQzwiW/yTQwdJ8w6UA9C6EVG18GHb/TrYpYCjyAQw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css" integrity="sha512-KXol4x3sVoO+8ZsWPFI/r5KBVB/ssCGB5tsv2nVOKwLg33wTFP3fmnXa47FdSVIshVTgsYk/1734xSk9aFIa4A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
     <script>
     var a = {{ a }}
@@ -14,14 +17,17 @@
             body: JSON.stringify({a: a++, b: Math.random()})
         }).then(v => v.json())
         console.log(answer)
-        document.getElementById('a').innerHTML = a
-        document.getElementById('x').innerHTML = answer.x
-        document.getElementById('y').innerHTML = answer.y
+        $('#a').html(a)
+        $('#x').html(answer.x)
+        $('#y').html(answer.y)
     }
     </script>
   </head>
   <body>
-    <button onclick="f()">Katt</button>
+    <h1>Express - Handlebars - JQuery - Semantic-ui Full Stack</h1>
+    <hr>
+    <button class="ui primary button" onclick="f()">Katt</button>
+    <hr>
     {{#if x}}
         <p>Value of <span>a</span> is <span id="a">{{ a }}</span>.</p>
         <p>Value of <span>x</span> is <span id="x">{{ x }}</span>.</p>
