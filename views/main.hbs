@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    var a = {{ a }}
+    async function f() {
+        const answer = await fetch('http://localhost:3000/post/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({a: a++, b: Math.random()})
+        }).then(v => v.json())
+        console.log(answer)
+        document.getElementById('a').innerHTML = a
+        document.getElementById('x').innerHTML = answer.x
+        document.getElementById('y').innerHTML = answer.y
+    }
+    </script>
+  </head>
+  <body>
+    <button onclick="f()">Katt</button>
+    {{#if x}}
+        <p>Value of a is <span id="a">{{ a }}</span>.</p>
+        <p>Value of x is <span id="x">{{ x }}</span>.</p>
+        <p>Value of y is <span id="y">{{ y }}</span>.</p>
+    {{/if}}
+  </body>
+</html>
