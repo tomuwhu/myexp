@@ -4,9 +4,10 @@ import { engine } from 'express-handlebars'
 var x = 1
 var y = Math.random()
 app()
-  .engine('.hbs', engine({extname: '.hbs'}))
+  .engine('.hbs', engine())
   .set('view engine', '.hbs')
   .set('views', './views')
+  .use(app.static('static'))
   .use(app.json())
   .use(ccx())
   .post('/post', (req, res) => {
